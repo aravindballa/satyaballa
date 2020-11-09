@@ -42,7 +42,7 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
 export async function getStaticPaths() {
   const table = await getAllPosts();
   return {
-    paths: table.map((row) => `/blog/${row.slug}`),
+    paths: table.map((row) => `/blog/${row.Slug}`),
     fallback: true
   };
 }
