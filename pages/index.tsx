@@ -2,7 +2,13 @@ import Link from "next/link";
 
 const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || "";
 
-export type Post = { id: string; slug: string; title: string; date: string };
+export type Post = {
+  id: string;
+  Slug: string;
+  Page: string;
+  Date: string;
+  Published: boolean;
+};
 
 export const getAllPosts = async (): Promise<Post[]> => {
   return await fetch(
