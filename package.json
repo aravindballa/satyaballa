@@ -1,5 +1,5 @@
 {
-  "name": "react-notion-blog",
+  "name": "satyaballa",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
@@ -18,5 +18,7 @@
     "@types/react-dom": "^16.9.4",
     "typescript": "3.7.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [],
+  "description": ""
 }

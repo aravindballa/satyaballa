@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-const NOTION_BLOG_ID =
-  process.env.NOTION_BLOG_ID || "1099525da7e5405c961706de56622ccd";
+const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || "";
 
 export type Post = { id: string; slug: string; title: string; date: string };
 
@@ -15,21 +14,21 @@ export async function getStaticProps() {
   const posts = await getAllPosts();
   return {
     props: {
-      posts,
-    },
+      posts
+    }
   };
 }
 
 function HomePage({ posts }: { posts: Post[] }) {
   return (
     <div className="content">
-      <h1>Posts</h1>
+      <h1>Satya's Blog</h1>
       <div>
         {posts.map((post) => (
-          <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+          <Link href="/blog/[slug]" as={`/blog/${post.Slug}`}>
             <a>
-              <b>{post.title}</b>
-              <div className="sub">posted on {post.date}</div>
+              <b>{post.Page}</b>
+              <div className="sub">posted on {post.Date}</div>
             </a>
           </Link>
         ))}
