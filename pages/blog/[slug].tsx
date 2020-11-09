@@ -33,7 +33,7 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
 
   return (
     <div className="content">
-      <h1>{post.title}</h1>
+      <h1>{post.Page}</h1>
       <NotionRenderer blockMap={blocks} />
     </div>
   );
