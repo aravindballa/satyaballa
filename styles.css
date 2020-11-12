@@ -1,3 +1,5 @@
+@tailwind base;
+
 .content {
   max-width: 70ch;
   margin: auto;
@@ -6,13 +8,33 @@
     "Segoe UI Symbol";
 }
 
-.sub {
-  color: gray;
-  font-size: 13px;
-}
-
 .notion {
   font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
+
+figure {
+  img {
+    width: 100%;
+  }
+}
+
+h1 {
+  @apply font-bold text-3xl mt-6;
+}
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write your own custom component styles here */
+.btn-blue {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */

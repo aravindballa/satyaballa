@@ -3,7 +3,7 @@ import { NotionRenderer, BlockMapType } from "react-notion";
 import { getAllPosts, Post } from "../";
 
 export async function getStaticProps({
-  params: { slug }
+  params: { slug },
 }: {
   params: { slug: string };
 }) {
@@ -20,20 +20,27 @@ export async function getStaticProps({
   return {
     props: {
       blocks,
-      post
-    }
+      post,
+    },
   };
 }
 
 const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
   post,
-  blocks
+  blocks,
 }) => {
   if (!post) return null;
 
   return (
     <div className="content">
       <h1>{post.Page}</h1>
+      <p className="text-gray-600 text-sm ">
+        {new Date(post.Date).toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </p>
       <NotionRenderer blockMap={blocks} />
     </div>
   );
@@ -43,7 +50,7 @@ export async function getStaticPaths() {
   const table = await getAllPosts();
   return {
     paths: table.map((row) => `/blog/${row.Slug}`),
-    fallback: false
+    fallback: false,
   };
 }
 
