@@ -72,7 +72,8 @@ h1 {
 /* Your own custom utilities */
 
 .head {
-  height: 300px;
+  /* TODO convert to tailwind */
+  height: 200px;
   display: grid;
   place-items: center;
 }
