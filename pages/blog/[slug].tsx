@@ -1,6 +1,8 @@
 import { NotionRenderer, BlockMapType } from "react-notion";
 
 import { getAllPosts, Post } from "../";
+import Layout from "../../components/Layout";
+import getReadableDate from "../../utils/getReadableDate";
 
 export async function getStaticProps({
   params: { slug },
@@ -32,17 +34,25 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
   if (!post) return null;
 
   return (
-    <div className="content">
-      <h1>{post.Page}</h1>
-      <p className="text-gray-600 text-sm ">
-        {new Date(post.Date).toLocaleDateString(undefined, {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </p>
-      <NotionRenderer blockMap={blocks} />
-    </div>
+    <Layout>
+      <div className="bg-white p-6 my-6 rounded shadow-md">
+        <div className="mb-6">
+          <h1 className="">{post.Page}</h1>
+          <p className="text-gray-600 text-sm">{getReadableDate(post.Date)}</p>
+          {post.Tags && (
+            <div className="mt-4">
+              {post.Tags.map((tag) => (
+                <span className="py-1 px-3 bg-gray-300 text-gray-700   rounded text-sm cursor-default">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <NotionRenderer blockMap={blocks} />
+      </div>
+    </Layout>
   );
 };
 
