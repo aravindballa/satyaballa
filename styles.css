@@ -20,6 +20,7 @@ body {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr min(75ch, 100%) 1fr;
+  grid-auto-rows: min-content;
   font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
     "Segoe UI Symbol";
@@ -70,10 +71,3 @@ h1 {
 /* Stop purging. */
 
 /* Your own custom utilities */
-
-.head {
-  /* TODO convert to tailwind */
-  height: 200px;
-  display: grid;
-  place-items: center;
-}

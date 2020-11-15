@@ -34,10 +34,10 @@ export async function getStaticProps() {
 function HomePage({ posts }: { posts: Post[] }) {
   return (
     <Layout>
-      <div className="full-width head">
+      <div className="full-width grid place-items-center h-64">
         <h1 className="text-gray-900">Satya's Blog</h1>
       </div>
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
         {posts
           .filter((post) => Boolean(post.Page) && post.Published)
           .map((post) => (
