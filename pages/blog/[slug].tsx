@@ -2,6 +2,7 @@ import { NotionRenderer, BlockMapType } from "react-notion";
 
 import { getAllPosts, Post } from "../";
 import Layout from "../../components/Layout";
+import SatyaSign from "../../components/SatyaSign";
 import getReadableDate from "../../utils/getReadableDate";
 
 export async function getStaticProps({
@@ -23,18 +24,20 @@ export async function getStaticProps({
     props: {
       blocks,
       post,
+      slug,
     },
   };
 }
 
-const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
-  post,
-  blocks,
-}) => {
+const BlogPost: React.FC<{
+  post: Post;
+  blocks: BlockMapType;
+  slug: string;
+}> = ({ post, blocks, slug }) => {
   if (!post) return null;
 
   return (
-    <Layout>
+    <Layout slug={slug}>
       <div className="bg-white p-6 my-6 rounded shadow-md">
         <div className="mb-6">
           <h1 className="">{post.Page}</h1>
@@ -51,6 +54,7 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType }> = ({
         </div>
 
         <NotionRenderer blockMap={blocks} />
+        <SatyaSign className="w-16 h-auto" />
       </div>
     </Layout>
   );

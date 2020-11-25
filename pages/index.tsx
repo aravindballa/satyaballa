@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import Layout from "../components/Layout";
 import getRandomTailwindGradient from "../utils/getRandomTailwindGradient";
@@ -33,16 +34,21 @@ export async function getStaticProps() {
 
 function HomePage({ posts }: { posts: Post[] }) {
   return (
-    <Layout>
+    <Layout slug="/">
       <div className="full-width grid place-items-center h-64">
-        <h1 className="text-gray-900">Satya's Blog</h1>
+        {/* <h1 className="text-gray-900">Satya's Blog</h1> */}
+        <Image src="/head.png" alt="Satya's Blog" width="180" height="120" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
         {posts
           .filter((post) => Boolean(post.Page) && post.Published)
+          .sort(
+            (postA, postB) =>
+              new Date(postB.Date).getTime() - new Date(postA.Date).getTime()
+          )
           .map((post) => (
             <Link key={post.id} href="/blog/[slug]" as={`/blog/${post.Slug}`}>
-              <a className="block bg-white rounded-md shadow-lg hover:shadow-xl focus:shadow-xl">
+              <a className="block bg-white rounded-md shadow-lg hover:shadow-xl focus:shadow-xl cursor-pointer">
                 <div
                   className={`w-full h-64 mb-4 rounded-md rounded-b-none ${getRandomTailwindGradient()}`}
                   style={
