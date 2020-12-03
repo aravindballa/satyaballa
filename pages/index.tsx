@@ -13,6 +13,7 @@ export type Post = {
   Slug: string;
   Page: string;
   Date: string;
+  Description?: string;
   Published: boolean;
   Tags?: String[];
 };
@@ -35,6 +36,11 @@ export async function getStaticProps() {
 function HomePage({ posts }: { posts: Post[] }) {
   return (
     <Layout slug="/">
+      <title>Satya Balla</title>
+      <meta
+        name="description"
+        content="Satya Balla's blog. Read and have fun!"
+      />
       <div className="full-width grid place-items-center h-64">
         {/* <h1 className="text-gray-900">Satya's Blog</h1> */}
         <Image src="/head.png" alt="Satya's Blog" width="180" height="120" />

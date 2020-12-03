@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { NotionRenderer, BlockMapType } from "react-notion";
 
 import { getAllPosts, Post } from "../";
@@ -38,6 +39,12 @@ const BlogPost: React.FC<{
 
   return (
     <Layout slug={slug}>
+      <Head>
+        <title>{post.Page} | Satya Balla</title>
+        {post.Description && (
+          <meta name="description" content={post.Description} />
+        )}
+      </Head>
       <div className="bg-white p-6 my-6 rounded shadow-md">
         <div className="mb-6">
           <h1 className="">{post.Page}</h1>
