@@ -2,7 +2,7 @@ const Layout: React.FC<{
   className?: string;
   children: React.ReactNode;
   slug?: string;
-}> = ({ className = "", children, slug = null }) => {
+}> = ({ className = "", children }) => {
   return (
     <>
       <div className={`content ${className}`}>{children}</div>
