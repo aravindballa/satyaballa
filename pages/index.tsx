@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 import Layout from "../components/Layout";
 import getRandomTailwindGradient from "../utils/getRandomTailwindGradient";
@@ -36,11 +37,13 @@ export async function getStaticProps() {
 function HomePage({ posts }: { posts: Post[] }) {
   return (
     <Layout slug="/">
-      <title>Satya Balla</title>
-      <meta
-        name="description"
-        content="Satya Balla's blog. Read and have fun!"
-      />
+      <Head>
+        <title>Satya Balla</title>
+        <meta
+          name="description"
+          content="Satya Balla's blog. Read and have fun!"
+        />
+      </Head>
       <div className="full-width grid place-items-center h-64">
         {/* <h1 className="text-gray-900">Satya's Blog</h1> */}
         <Image src="/head.png" alt="Satya's Blog" width="180" height="120" />

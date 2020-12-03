@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { NotionRenderer, BlockMapType } from "react-notion";
 
 import { getAllPosts, Post } from "../";
@@ -45,14 +46,17 @@ const BlogPost: React.FC<{
           <meta name="description" content={post.Description} />
         )}
       </Head>
-      <div className="bg-white p-6 my-6 rounded shadow-md">
+      <div className="mt-6 mb-3">
+        <Link href="/">⬅ Home</Link>
+      </div>
+      <div className="bg-white p-6 mb-6 rounded shadow-md">
         <div className="mb-6">
           <h1 className="">{post.Page}</h1>
           <p className="text-gray-600 text-sm">{getReadableDate(post.Date)}</p>
           {post.Tags && (
-            <div className="mt-4">
+            <div className="mt-4 flex gap-2">
               {post.Tags.map((tag) => (
-                <span className="py-1 px-3 bg-gray-300 text-gray-700   rounded text-sm cursor-default">
+                <span className="py-1 px-3 bg-gray-300 text-gray-700 rounded text-sm cursor-default">
                   #{tag}
                 </span>
               ))}
