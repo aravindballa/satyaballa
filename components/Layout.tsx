@@ -13,7 +13,7 @@ const Layout: React.FC<{
         Made with <span className="hover:text-red-400">♥</span> by{" "}
         <a
           className="hover:text-blue-200 focus:text-blue-200"
-          href="https://aravindballa.com"
+          href="https://aravindballa.com/?utm_source=satyaballa.com"
         >
           Aravind Balla
         </a>
